@@ -1,0 +1,25 @@
+#include <stdlib>
+#include "main.h"
+
+/**
+ * *create_array - function that access the created memory of char c
+ * @size: size of array
+ * @c: char
+ * Return: return NULL if fail,ohterwise point to array
+ */
+
+char *create_array(unsigned int size, char c)
+
+{
+	char *str;
+	unsigned int i;
+
+	str = malloc(sizeof(char) * size);
+
+	if (size == 0 || str == NULL)
+		return (NULL);
+
+	for (i = 0; i < size; i++)
+		str[i] = c;
+	return (str);
+}
