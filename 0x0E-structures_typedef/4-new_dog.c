@@ -19,6 +19,13 @@ int _strlen(char *s)
 
 	return (i);
 }
+/**
+ * *_strcpy - copies address for src
+ * terminating null byte (\0)
+ * @dest: buffer pointer
+ * @src: string for copying
+ * Return: dest
+ */
 char *_strcpy(char *dest, char *src)
 
 {
@@ -39,7 +46,14 @@ char *_strcpy(char *dest, char *src)
 
 	return (dest);
 }
-
+/**
+ * new_dog - new dog
+ * @name: dog name
+ * @age: dog age
+ * @owner: dog owner
+ *
+ * Return: Upon success address new dog, fail NULL
+ */
 dog_t *new_dog(char *name, float age, char *owner)
 {
 	dog_t *dog;
