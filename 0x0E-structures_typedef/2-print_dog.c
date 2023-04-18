@@ -2,6 +2,10 @@
 #include <stdio.h>
 #include "dog.h"
 
+/**
+ * print_dog - print struct dog
+ * @d: prints struct
+ */
 void print_dog(struct dog *d)
 {
 	if (d == NULL)

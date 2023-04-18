@@ -1,9 +1,15 @@
 #include <stdlib.h>
 #include "dog.h"
-
+/**
+ * _strlen - return length
+ * @s: string to check
+ *
+ * Return: string length.
+ */
 int _strlen(char *s)
 {
 	int i;
+
 	i = 0;
 
 	while (s[i] != '\0')
@@ -14,8 +20,10 @@ int _strlen(char *s)
 	return (i);
 }
 char *_strcpy(char *dest, char *src)
+
 {
 	int len, i;
+
 	len = 0;
 
 	while (src[len] != '\0')
