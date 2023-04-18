@@ -2,7 +2,7 @@
 
 /**
  * main - file name
- * Return: 0
+ * Return: 0upon sucessful
  */
 int main(void)
 {
