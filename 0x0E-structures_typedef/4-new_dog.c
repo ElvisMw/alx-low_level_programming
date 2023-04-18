@@ -3,7 +3,7 @@
 
 int _strlen(char *s)
 {
-	int 1;
+	int i;
 	i = 0;
 
 	while (s[i] != '\0')
@@ -13,6 +13,7 @@ int _strlen(char *s)
 
 	return (i);
 }
+char *_strcpy(char *dest, char *src)
 {
 	int len, i;
 	len = 0;
