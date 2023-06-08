@@ -1,30 +1,28 @@
 #include "main.h"
 /**
- * _sqrt_recursion - function to computesquare root of a number.
+ * _sqrt_recursion - function to compute square root of a number.
  * @n: number for square root
  * Return: Natural square root if present or -1 if absent
  */
 int _sqrt_recursion(int n)
 {
-	return sqrt_x(n, 1);
+	return letty_sqrt_recursion(n, 1);
+}
 
 /*
- * sqrt_x - function to assist in the calculation of the square rot
+ * letty_sqrt_recursion - function to assist in the calculation of the square rot
  * @n: number to compute its square root
- * @rand: random guess for square root
+ * @i: Looks for square root
  *
  * Return: Naturaal square root if present or -1 if absent
  */
-int sqrt_x(int n, int rand)
+int letty_sqrt_recursion(int n, int i)
 {
-	if (n < 0)
+	if (i * i > n)
 		return (-1);
-	
-	if (rand * rand > n )
-		return (-1);
-	
-	if (rand * rand == n)
-		return (rand);
-	
-	return (sqrt_x(n, rand + 1));
-}	
+
+	if (i * i == n)
+		return (i);
+
+	return letty_sqrt_recursion(n, i + 1);
+}
