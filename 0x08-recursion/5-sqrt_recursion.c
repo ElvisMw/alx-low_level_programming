@@ -2,10 +2,9 @@
 
 int letty_sqrt_recursion(int n, int i);
 
-/*
+/**
  * letty_sqrt_recursion -function finds natural square root of number
- * _sqrt_recursion - computes square root of natural number
- * by recursion
+ *  _sqrt_recursion -function to get sqrt of a natural number n
  * letty_sqrt_recursion - Through recursion finds natural square root of number
  * @n: number for square root
  * Return: Natural square root if present or -1 if absent
@@ -18,8 +17,8 @@ int _sqrt_recursion(int n)
 	return (letty_sqrt_recursion(n, 0));
 }
 
-/*
- * letty_sqrt_recursion -finds natural square root of number
+/**
+ *letty_sqrt_recursion -finds natural square root of number
  * by recursion
  * @n: number to compute its square root
  * @i: Looks for square root
