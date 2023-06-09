@@ -1,6 +1,5 @@
 #include "main.h"
-
-int _isdigit(int c)
+int _isupper(int c)
 {
 	return (0);
 }
