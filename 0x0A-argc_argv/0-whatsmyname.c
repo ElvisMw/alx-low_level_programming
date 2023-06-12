@@ -1,5 +1,5 @@
+#include <stdio.h>
 #include "main.h"
-
 /**
  * main - Entry point of the program
  * @argc: The number of command-line arguments
@@ -7,8 +7,9 @@
  *
  * Return: Always 0 (Success)
  */
-int main(int argc, char *argv[])
+int main(int argc __attribute__((unused)), char *argv[])
 {
-	print_prog_name(argc, argv);
+	printf("%s\n", *argv);
+
 	return (0);
 }
