@@ -9,5 +9,6 @@
 
 int _putchar(char c);
 void print_prog_name(int argc, char *argv[]);
+int main(int argc, char *argv[]);
 
 #endif
