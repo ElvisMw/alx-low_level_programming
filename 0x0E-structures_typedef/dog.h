@@ -5,14 +5,14 @@
  * struct dog - Structure for  dog
  * @name: Points dog's name
  * @age: Dog's age
- * @owner: Points dog's owner
+ * @owner: dog's owner
  */
-struct dog
+typedef struct dog
 {
 	char *name;
 	float age;
 	char *owner;
-};
+} dog_t;
 
 void init_dog(struct dog *d, char *name, float age, char *owner);
 void print_dog(struct dog *d);
