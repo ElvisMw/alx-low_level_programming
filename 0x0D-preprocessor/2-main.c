@@ -1,6 +1,7 @@
 #include <stdio.h>
-/*
- * main - program starts here and take no arguements
+/**
+ * main - program starts here and take no arguements void
+ *
  * prints name of the source file
  * Return: Always 0 upon success
  */
