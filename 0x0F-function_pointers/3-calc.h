@@ -1,5 +1,5 @@
-#ifndef _3_CALC_H_
-#define _3_CALC_H_
+#ifndef CALC_H
+#define CALC_H
 
 int _putchar(char c);
 int (*get_op_func(char *s))(int, int);
