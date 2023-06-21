@@ -7,7 +7,6 @@
  * main - Gives calc operations
  * @argc: Argument given in the program
  * @argv: Argument vector
- *
  * Return: 0 upon success or 98 if wrong number of arguments
  *         or 99 if invalid operator or  100 if division by 0
  */
