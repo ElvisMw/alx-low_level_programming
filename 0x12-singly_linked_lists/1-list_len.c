@@ -1,8 +1,9 @@
 #include <stddef.h>
+#include <stdlib.h>
 #include "lists.h"
 
 /**
- * list_len - Counts the number of elements in a linked list_t list.
+ * list_len - Gives number of elements in a linked list_t list.
  * @h: Represents pointer to head node of list
  * Return: Numerical value for elements in the list
  */
