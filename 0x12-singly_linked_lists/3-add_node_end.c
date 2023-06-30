@@ -2,16 +2,16 @@
 #include <string.h>
 #include "lists.h"
 
-/*
- * add_node_end - For adding a new node at end of list_t list
+/**
+ * add_node_end - pointeer For adding a new node at end of list_t list
  * @head: Represents pointer to a pointer to the first element of the list
  * @str: Represents string to be added to the list
  * Return: Upon sucess, address of the new element
  * otherwise, NULL.
  */
-list_t* add_node_end(list_t **head, const char *str)
+list_t *add_node_end(list_t **head, const char *str)
 {
-	list_t * new;
+	list_t *new;
 	list_t *temp = *head;
 	unsigned int len = 0;
 
