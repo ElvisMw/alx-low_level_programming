@@ -1,11 +1,10 @@
-#include <stddef.h>
-#include <stdlib.h>
 #include "lists.h"
 
 /**
- * list_len - Gives number of elements in a linked list_t list.
- * @h: Represents pointer to head node of list
- * Return: Numerical value for elements in the list
+ * list_len - Returns also number of elements in linked list_t list.
+ * @h: Pointer to head of the linked list.
+ *
+ * Return: Numerical value for elements in the list.
  */
 size_t list_len(const list_t *h)
 {
