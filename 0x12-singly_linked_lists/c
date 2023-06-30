@@ -1,0 +1,22 @@
+
+========== 0-print_list.c ==========
+print_list
+
+========== 1-list_len.c ==========
+list_len
+
+========== a ==========
+a:0: ERROR: Does not appear to be a unified-diff format patch
+total: 1 errors, 0 warnings, 0 lines checked
+
+========== lists.h ==========
+lists.h:19: WARNING: please, no spaces at the start of a line
+lists.h:20: WARNING: please, no spaces at the start of a line
+lists.h:21: WARNING: please, no spaces at the start of a line
+total: 0 errors, 3 warnings, 27 lines checked
+struct list_s
+
+========== _putchar.c ==========
+_putchar
+
+========== README.md ==========
