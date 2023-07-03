@@ -2,9 +2,9 @@
 #include "lists.h"
 
 /**
- * print_listint - Prints listint_t list elements
- * @h: Points list's header
- * Return: Numerical value for  nodes in the list
+ * print_listint - Prints all elements of a listint_t list
+ * @h: Points list's head
+ * Return: Numerical value for nodes in the list.
  */
 size_t print_listint(const listint_t *h)
 {
