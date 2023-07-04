@@ -6,7 +6,7 @@
 /**
  * struct listint_s - singly linked list
  * @n: Represents integer
- * @next: Represents pointer to next node
+ * @next: Represents pointer to next Node
  * Description: Structure of singly linked list's node
  */
 typedef struct listint_s
