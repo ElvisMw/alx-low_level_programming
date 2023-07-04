@@ -5,7 +5,6 @@
 /**
  * pop_listint - Deletes head node of listint_t linked list
  * @head: Double pointer to list's head
- 
  * Return: stored head node data
  */
 int pop_listint(listint_t **head)
