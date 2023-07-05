@@ -2,7 +2,7 @@
 #include "lists.h"
 
 /**
- * free_listint_safe - Performs freeing of 
+ * free_listint_safe - Performs freeing of
  * listint_t linked list
  * @h: Represents linked list's head pointer
  * Return: actual  size of list after freeing
