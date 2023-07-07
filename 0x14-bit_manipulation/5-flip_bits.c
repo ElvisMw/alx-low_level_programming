@@ -1,0 +1,24 @@
+#include "main.h"
+
+/**
+ * flip_bits - Returns the number of bits required to flip
+ * from one number to another
+ * @n: Represents first number
+ * @m: Represents second number
+ *
+ * Return: Numerical value for bits needed to flip
+ */
+unsigned int flip_bits(unsigned long int n, unsigned long int m)
+{
+	unsigned long int xor_result = n ^ m;
+	unsigned int bits = 0;
+
+	while (xor_result != 0)
+	{
+		if (xor_result & 1)
+			bits++;
+		xor_result >>= 1;
+	}
+
+	return (bits);
+}
