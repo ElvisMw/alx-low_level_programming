@@ -4,6 +4,8 @@
 
 /**
  * main - check the code
+ * @ac: number of commandline arguements
+ * @av: arguement vector
  *
  * Return: Always 0.
  */
