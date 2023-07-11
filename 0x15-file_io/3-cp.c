@@ -8,10 +8,9 @@
 
 /**
  * main - Entry point
- * @argc: The number of command line arguments
- * @argv: An array containing the command line arguments
- *
- * Return: 0 on success, otherwise an error code
+ * @argc: represents the nuerical value for  command line arguments
+ * @argv: represents Array, contains the command line arguments
+ * Return: upon success 0 on, otherwise an error code
  */
 int main(int argc, char *argv[])
 {
@@ -47,4 +46,3 @@ int main(int argc, char *argv[])
 
 	return (0);
 }
-
