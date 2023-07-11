@@ -1,50 +1,89 @@
+#include <stdio.h>
+#include <stdlib.h>
 #include <unistd.h>
 #include <fcntl.h>
-#include <stdlib.h>
-#include <stdio.h>
-#include "main.h"
 #include <elf.h>
-#include <errno.h>
-
-#define BUFFER_SIZE 1024
 
 /**
- * main - Entry point
- * @argc: represents the nuerical value for  command line arguments
- * @argv: represents Array, contains the command line arguments
- * Return: upon success 0 on, otherwise an error code
+ * print_error - Printing error message to stderr then exits with status code 98.
+ * @message: corresponding error message
+ */
+void print_error(const char *message)
+{
+	dprintf(STDERR_FILENO, "%s\n", message);
+	exit(98);
+}
+
+/**
+ * print_elf_header - Printing info from the ELF header
+ * @header: ELF header structure pointer
+ */
+void print_elf_header(Elf64_Ehdr *header)
+{
+	int emw;
+
+	printf("  Magic:   ");
+	for (emw = 0; emw < EI_NIDENT; emw++)
+		printf("%02x ", header->e_ident[emw]);
+	printf("\n");
+	printf("  Class:                             %s\n",
+			header->e_ident[EI_CLASS] == ELFCLASS32 ? "ELF32" :
+			header->e_ident[EI_CLASS] == ELFCLASS64 ? "ELF64" :
+			"Invalid class");
+	printf("  Data:                              %s\n",
+			header->e_ident[EI_DATA] == ELFDATA2LSB ? "2's complement, little endian" :
+			header->e_ident[EI_DATA] == ELFDATA2MSB ? "2's complement, big endian" :
+			"Invalid data encoding");
+	printf("  Version:                           %d (current)\n", header->e_ident[EI_VERSION]);
+	printf("  OS/ABI:                            %s\n",
+			header->e_ident[EI_OSABI] == ELFOSABI_SYSV ? "UNIX - System V" :
+			header->e_ident[EI_OSABI] == ELFOSABI_HPUX ? "HP-UX" :
+			header->e_ident[EI_OSABI] == ELFOSABI_NETBSD ? "NetBSD" :
+			header->e_ident[EI_OSABI] == ELFOSABI_LINUX ? "Linux" :
+			"Invalid OS/ABI");
+	printf("  ABI Version:                       %d\n", header->e_ident[EI_ABIVERSION]);
+	printf("  Type:                              %s\n",
+			header->e_type == ET_NONE ? "NONE (No file type)" :
+			header->e_type == ET_REL ? "REL (Relocatable file)" :
+			header->e_type == ET_EXEC ? "EXEC (Executable file)" :
+			header->e_type == ET_DYN ? "DYN (Shared object file)" :
+			header->e_type == ET_CORE ? "CORE (Core file)" :
+			"Invalid type");
+	printf("  Entry point address:               0x%lx\n", header->e_entry);
+}
+
+/**
+ * main - Entry point of the program
+ * @argc: numerical valuefor command-line arguments.
+ * @argv: An array in command-line arguments
+ * Return: 0 when successful, or related  error code
  */
 int main(int argc, char *argv[])
 {
-	int file_from, file_to, r, w;
-	char buffer[BUFFER_SIZE];
+	int file_description;
+	Elf64_Ehdr header;
 
-	if (argc != 3)
-		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n"), exit(97);
+	if (argc != 2)
+		print_error("Usage: elf_header elf_filename");
 
-	file_from = open(argv[1], O_RDONLY);
-	if (file_from == -1)
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]), exit(98);
+	file_description = open(argv[1], O_RDONLY);
+	if (file_description == -1)
+		print_error("Error: Cannot open file");
 
-	file_to = open(argv[2], O_WRONLY | O_TRUNC | O_CREAT, S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH);
-	if (file_to == -1)
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]), exit(99);
+	if (read(file_description, &header, sizeof(header)) != sizeof(header))
+		print_error("Error: Cannot read ELF header");
 
-	while ((r = read(file_from, buffer, BUFFER_SIZE)) > 0)
-	{
-		w = write(file_to, buffer, r);
-		if (w == -1 || w != r)
-			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]), exit(99);
-	}
+	if (header.e_ident[EI_MAG0] != ELFMAG0 ||
+			header.e_ident[EI_MAG1] != ELFMAG1 ||
+			header.e_ident[EI_MAG2] != ELFMAG2 ||
+			header.e_ident[EI_MAG3] != ELFMAG3)
+		print_error("Error: Not an ELF file");
+	
+	lseek(file_description, 0, SEEK_SET);
 
-	if (r == -1)
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]), exit(98);
+	printf("ELF Header:\n");
+	print_elf_header(&header);
 
-	if (close(file_from) == -1)
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_from), exit(100);
-
-	if (close(file_to) == -1)
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_to), exit(100);
-
+	close(file_description);
 	return (0);
 }
