@@ -1,6 +1,8 @@
 #include <fcntl.h>
 #include <unistd.h>
 #include "main.h"
+#include <stdlib.h>
+#include <string.h>
 
 /**
  * append_text_to_file - appends text to the file,
