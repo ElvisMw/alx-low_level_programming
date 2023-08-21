@@ -1,9 +1,11 @@
 #include "main.h"
 /**
- * _memset - allows for a block memory with known value.
- * @s: starting address of memory.
- * @b: wanted  value
- * @n: for number of bytes thha need to be changed
+ * _memset - This allows for a block memory
+ * with known value.
+ * @s: represents the starting address of memory.
+ * @b: represents wanted  value
+ * @n: representsfor number of bytes that
+ * need to be changed
  *
  * Return: will return changed array follwed by a new value for n bytes
  */
