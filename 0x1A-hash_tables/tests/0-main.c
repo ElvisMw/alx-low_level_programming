@@ -6,13 +6,14 @@
 /**
  * main - Entry point of the program
  *
- * Return: EXIT_SUCCESS if the program runs successfully, otherwise exit status code
+ * Return: EXIT_SUCCESS if the program runs successfully,
+ * otherwise exit status code
  */
 int main(void)
 {
-    hash_table_t *ht;
+	hash_table_t *ht;
 
-    ht = hash_table_create(1024);
-    printf("%p\n", (void *)ht);
-    return (EXIT_SUCCESS);
+	ht = hash_table_create(1024);
+	printf("%p\n", (void *)ht);
+	return (EXIT_SUCCESS);
 }
