@@ -1,50 +1,45 @@
-#ifndef SEARCH_ALGOS_H
-#define SEARCH_ALGOS_H
-#include <stddef.h>
+#ifndef _SORTING_ALGOS_H_
+#define _SORTING_ALGOS_H_
 
-/* Function prototypes with comments */
+#include <stdlib.h>
+#include <stdio.h>
+
+/**
+ * struct listint_s - singly linked list node
+ * @n: integer value stored in the node
+ * @index: index of the node in the list
+ * @next: pointer to the next node in the list
+ */
+typedef struct listint_s
+{
+    int n;
+    size_t index;
+    struct listint_s *next;
+} listint_t;
+
+/**
+ * struct skiplist_s - singly linked list for skip list
+ * @n: integer value stored in the node
+ * @index: index of the node in the list
+ * @next: pointer to the next node in the list
+ * @express: pointer to the next node in the express lane
+ */
+typedef struct skiplist_s
+{
+    int n;
+    size_t index;
+    struct skiplist_s *next;
+    struct skiplist_s *express;
+} skiplist_t;
+
+/* Function prototypes */
 int linear_search(int *array, size_t size, int value);
-/*
- * Linear search: Iterate through the array to find the target value.
- * Parameters:
- * - array: Pointer to the array to be searched
- * - size: Number of elements in the array
- * - value: Target value to be found
- * Returns:
- * - Index of the target value if found, otherwise -1
- */
-
 int binary_search(int *array, size_t size, int value);
-/*
- * Binary search: Divide and conquer approach to find the target value.
- * Parameters:
- * - array: Pointer to the sorted array to be searched
- * - size: Number of elements in the array
- * - value: Target value to be found
- * Returns:
- * - Index of the target value if found, otherwise -1
- */
-
 int jump_search(int *array, size_t size, int value);
-/*
- * Jump search: Jump quickly narrow down the search.
- * Parameters:
- * - array: Pointer to the sorted array to be searched
- * - size: Number of elements in the array
- * - value: Target value to be found
- * Returns:
- * - Index of the target value if found, otherwise -1
- */
-
 int interpolation_search(int *array, size_t size, int value);
-/*
- * Interpolation search: Estimate position of target value based on its value
- * Parameters:
- * - array: Pointer to the sorted array to be searched
- * - size: Number of elements in the array
- * - value: Target value to be found
- * Returns:
- * - Index of the target value if found, otherwise -1
- */
+int exponential_search(int *array, size_t size, int value);
+int advanced_binary(int *array, size_t size, int value);
+listint_t *jump_list(listint_t *list, size_t size, int value);
+skiplist_t *linear_skip(skiplist_t *list, int value);
 
-#endif /* SEARCH_ALGOS_H */
+#endif /* _SORTING_ALGOS_H_ */
