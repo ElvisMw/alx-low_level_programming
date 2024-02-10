@@ -1,7 +1,6 @@
-#include <stddef.h>
-
 #ifndef SEARCH_ALGOS_H
 #define SEARCH_ALGOS_H
+#include <stddef.h>
 
 /* Function prototypes with comments */
 int linear_search(int *array, size_t size, int value);
@@ -28,7 +27,7 @@ int binary_search(int *array, size_t size, int value);
 
 int jump_search(int *array, size_t size, int value);
 /*
- * Jump search: Jump through the array with fixed steps to quickly narrow down the search.
+ * Jump search: Jump quickly narrow down the search.
  * Parameters:
  * - array: Pointer to the sorted array to be searched
  * - size: Number of elements in the array
@@ -39,7 +38,7 @@ int jump_search(int *array, size_t size, int value);
 
 int interpolation_search(int *array, size_t size, int value);
 /*
- * Interpolation search: Estimate the probable position of the target value based on its value.
+ * Interpolation search: Estimate position of target value based on its value
  * Parameters:
  * - array: Pointer to the sorted array to be searched
  * - size: Number of elements in the array
